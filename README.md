@@ -5,7 +5,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e94de688acfc28dd569e/maintainability)](https://codeclimate.com/github/jacoblockard99/models_in_place/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e94de688acfc28dd569e/test_coverage)](https://codeclimate.com/github/jacoblockard99/models_in_place/test_coverage)
 
-[`edit_in_place`](https://github.com/jacoblockard99/edit_in_place) is a gem that allows for the creation of intuitve editable content. It is extremely flexible and powerful. But the vast majority of users will be using `edit_in_place` in a very similar way, using models to store and manipulate editable data. `models_in_place` provides a layer of convenienve atop `edit_in_place`, making it easier (and more fun!) to use when you are working in a model-like system. You'll likely want to use `models_in_place` if you use models—whether ActiveRecord ones or not—to store data and then use `edit_in_place` fields to allow for the edition of attributes on those models.
+[`edit_in_place`](https://github.com/jacoblockard99/edit_in_place) is a gem that allows for the creation of intuitve editable content. It is extremely flexible and powerful. But the vast majority of users will be using `edit_in_place` in a very similar way, using models to store and manipulate editable data. `models_in_place` provides a layer of convenience atop `edit_in_place`, making it easier (and more fun!) to use when you are working in a model-like system. You'll likely want to use `models_in_place` if you use models—whether ActiveRecord ones or not—to store data and then use `edit_in_place` fields to allow for the edition of attributes on those models.
 
 ## Links
 
@@ -51,6 +51,7 @@ Next, you'll need to inject the `models_in_place` middlewares into your configur
   - `ModelsInPlace::SignatureEnforcerMiddleware`—This middleware ensures that all fields inputs are as `models_in_place` expects them. This can help prevent obscure errors down the line.
   - `ModelsInPlace::OptionsInsertMiddleware`—This middleware allows options to be dynamically appended to a field. This is used internally to provide the functionality for option scopes. You may also use it directly is desired.
   - `ModelsInPlace::ModelAdapterMiddleware`—This middleware converts any model instances into `ModelsInPlace::ModelAdapter` instances (more on that later).
+
 You should define the middlewares in roughly the order listed. The most important thing is that `OptionsInjectorMiddleware` **must** come before the `SignatureEnforcerMiddleware`, and `OptionsInsertMiddleware` and `ModelAdapterMiddleware` **should** come after the `SignatureEnforcerMiddleware`. Depending on your middleware setup, you'll likely use something akin to this:
 
 ```ruby
