@@ -15,7 +15,7 @@ module ModelsInPlace
   #
   #   begin
   #     # Do something risky with models_in_place here...
-  #   rescue Middlegem::Error
+  #   rescue ModelsInPlace::Error
   #     # Catch any models_in_place-specific error here...
   #   end
   #
