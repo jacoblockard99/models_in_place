@@ -13,13 +13,13 @@ module ModelsInPlace
     # @author Jacob Lockard
     # @since 0.1.0
     class SignatureEnforcer < Middlegem::Middleware
-      # Executes the `SignatureEnforcer` middleware by accepting only the arguments it expects
+      # Executes the {SignatureEnforcer} middleware by accepting only the arguments it expects
       # and ensuring that the options argument is a hash.
-      #
       # @param field_options [FieldOptions] the {FieldOptions} instance containing the options
       #   and context required to render the field.
       # @param model [Object] the model instance for which to render the field.
-      # @param attribute [String, Symbol] the name of the attribute for which to render the field.
+      # @param attribute [String, Symbol] the name of the attribute for which to render the
+      #   field.
       # @param options [Hash] the hash of options to the field type.
       # @return [Array] the valid arguments.
       # @raise [InvalidFieldSignatureError] if the field input is invalid.

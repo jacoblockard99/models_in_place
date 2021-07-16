@@ -3,6 +3,7 @@
 require 'models_in_place/version'
 require 'models_in_place/railtie'
 require 'models_in_place/middlewares/signature_enforcer'
+require 'models_in_place/middlewares/options_injector'
 
 # {ModelsInPlace} is the top-level namespace that contains all classes and modules within the
 # models_in_place gem.
