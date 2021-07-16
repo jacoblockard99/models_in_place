@@ -22,7 +22,9 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
+  spec.add_dependency 'edit_in_place', '0.1.0'
   spec.add_dependency 'rails', '~> 6.1.4'
+
   spec.add_development_dependency 'byebug', '~> 11.0'
   spec.add_development_dependency 'rspec-rails', '~> 5.0'
   spec.add_development_dependency 'rubocop', '~> 1.18'
