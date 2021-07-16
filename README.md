@@ -50,7 +50,7 @@ Next, you'll need to inject the `models_in_place` middlewares into your configur
   - `ModelsInPlace::Middlewares::OptionsInjector`—This middleawre ensures that the last field input is an option hash, appending an empty hash if necessary.
   - `ModelsInPlace::Middlewares:SignatureEnforcer`—This middleware ensures that all fields inputs are as `models_in_place` expects them. This can help prevent obscure errors down the line.
   - `ModelsInPlace::Middlewares::OptionsInsert`—This middleware allows options to be dynamically appended to a field. This is used internally to provide the functionality for option scopes. You may also use it directly is desired.
-  - `ModelsInPlace::Middlewares::ModelAdaptere`—This middleware converts any model instances into `ModelsInPlace::ModelAdapter` instances (more on that later).
+  - `ModelsInPlace::Middlewares::ModelAdapter`—This middleware converts any model instances into `ModelsInPlace::ModelAdapter` instances (more on that later).
 
 You should define the middlewares in roughly the order listed. The most important thing is that `OptionsInjector` **must** come before `SignatureEnforcer`, and `OptionsInsert` and `ModelAdapter` **should** come after the `SignatureEnforcer`. Depending on your middleware setup, you'll likely use something akin to this:
 
