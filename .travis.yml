@@ -1,0 +1,16 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID="a64e7c04b281ccc55cb7fb217fec155a86f2223af3be8e3de71465669fb22c3f"
+language: ruby
+rvm:
+  - 2.5
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - bundle exec rubocop -DESP
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter format-coverage -t simplecov
+  - ./cc-test-reporter upload-coverage
