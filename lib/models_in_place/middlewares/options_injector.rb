@@ -16,14 +16,13 @@ module ModelsInPlace
     class OptionsInjector < Middlegem::Middleware
       # Executes the {OptionsInjector} middleware by appending an empty hash to the end of the
       # input unless the last argument is already a hash.
-      # @param field_options [FieldOptions] the {FieldOptions} instance containing the options
-      #   and context required to render the field.
+      # @param mode [Symbol] the mode with which the field should be rendered.
       # @param args [Array] the input argument array.
       # @return [Array] the transformed arguments.
-      def call(field_options, *args)
+      def call(mode, *args)
         args << {} unless args.last.is_a? Hash
 
-        [field_options, *args]
+        [mode, *args]
       end
     end
   end

@@ -30,15 +30,14 @@ module ModelsInPlace
       # Executes the {OptionsInsert} middleware by using the {deep_merge
       # https://github.com/danielsdeleo/deep_merge} gem to recursively merge the options in
       # {#inserted_options} with the current options hash.
-      # @param field_options [FieldOptions] the {FieldOptions} instance containing the options
-      #   and context required to render the field.
+      # @param mode [Symbol] the mode in which the field should be rendered.
       # @param args [Array] the input argments to transform. The final argument *must* be a hash.
       # @return [Array] the transformed arguments.
-      def call(field_options, *args)
+      def call(mode, *args)
         merge_options = { extend_existing_arrays: true }
         args[-1] = inserted_options.deep_dup.deeper_merge!(args.last, merge_options)
 
-        [field_options, *args]
+        [mode, *args]
       end
     end
   end
